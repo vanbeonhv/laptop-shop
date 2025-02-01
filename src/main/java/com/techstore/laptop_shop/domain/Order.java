@@ -27,8 +27,6 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderProduct> orderProducts;
 
-    // user id
-
     public long getId() {
         return id;
     }

@@ -1,5 +1,6 @@
 package com.techstore.laptop_shop.controller.admin;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.techstore.laptop_shop.domain.User;
 import com.techstore.laptop_shop.service.UserService;
@@ -48,9 +51,15 @@ public class UserController {
     }
 
     @PostMapping
-    public String createNewUser(@ModelAttribute("newUser") User user) {
-        userService.handleSaveUser(user);
-        return "redirect:/admin/user";
+    public String createNewUser(@ModelAttribute("newUser") User user, @RequestParam("avatarFile") MultipartFile file) {
+        try {
+            userService.handleSaveUser(user, file);
+            return "redirect:/admin/user";
+        } catch (IOException e) {
+            // return error message
+            e.printStackTrace();
+            return "admin/user/create";
+        }
     }
 
     @GetMapping("/update/{id}")
