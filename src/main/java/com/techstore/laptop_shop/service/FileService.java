@@ -19,6 +19,9 @@ public class FileService {
     }
 
     public String handleSaveFile(MultipartFile file, String path) throws IOException {
+        if(file.isEmpty()){
+            return " ";
+        }
 
         byte[] bytes = file.getBytes();
         String rootPath = this.servletContext.getRealPath("/assets/img");

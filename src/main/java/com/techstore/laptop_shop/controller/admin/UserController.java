@@ -7,6 +7,8 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.techstore.laptop_shop.domain.User;
 import com.techstore.laptop_shop.service.UserService;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/admin/user")
@@ -51,8 +55,21 @@ public class UserController {
     }
 
     @PostMapping
-    public String createNewUser(@ModelAttribute("newUser") User user, @RequestParam("avatarFile") MultipartFile file) {
+    public String createNewUser(
+            @ModelAttribute("newUser") @Valid User user,
+            BindingResult newUserBindingResult,
+            @RequestParam("avatarFile") MultipartFile file) {
         try {
+
+            List<FieldError> errors = newUserBindingResult.getFieldErrors();
+            for (FieldError error : errors) {
+                System.out.println(">>>" + error.getField() + "--" + error.getDefaultMessage());
+            }
+
+            if(newUserBindingResult.hasErrors()){
+                return "admin/user/create";
+            }
+
             userService.handleSaveUser(user, file);
             return "redirect:/admin/user";
         } catch (IOException e) {
