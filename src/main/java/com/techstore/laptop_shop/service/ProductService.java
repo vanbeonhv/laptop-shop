@@ -25,7 +25,7 @@ public class ProductService {
 
     public Product handleSaveProduct(Product product, MultipartFile file) throws IOException {
         String fileName = fileService.handleSaveFile(file, "product");
-        product.setImage(fileName);
+        product.setImage(fileName); 
         return productRepository.save(product);
     }
 
@@ -49,5 +49,11 @@ public class ProductService {
             existingProduct.setImage(fileName);
         }
         productRepository.save(existingProduct);
+    }
+
+    public void handleDeleteProduct(Long id) {
+        Product product = productRepository.findById(id).get();
+        productRepository.delete(product);
+        fileService.handleDeleteFile(product.getImage(), "product");
     }
 }

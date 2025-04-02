@@ -5,7 +5,7 @@
                 <div class="d-flex align-items-center justify-content-between small">
                     <div class="text-muted">Copyright &copy; Marc Nguyen 2025</div>
                     <div>
-                        <a href="https://github.com/vanbeonhv" target="_blank">Github</a>
+                        <a href="https://github.com/vanbeonhv/laptop-shop" target="_blank">Github</a>
                         &middot;
                     </div>
                 </div>

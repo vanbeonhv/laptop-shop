@@ -66,6 +66,18 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/delete/{id}")
+    public String getDeleteProductPage(@PathVariable Long id, Model model) {
+        try {
+            Product product = productService.handleGetProductDetail(id);
+            model.addAttribute("product", product);
+            return "admin/product/delete";
+        } catch (NoSuchElementException e) {
+            model.addAttribute("error", e.getMessage());
+            return "admin/product/error";
+        }
+    }
+
     @PostMapping
     public String createNewProduct(
             @ModelAttribute("newProduct") @Valid Product product,
@@ -96,7 +108,7 @@ public class ProductController {
             @ModelAttribute("product") @Valid Product product,
             @RequestParam("avatarFile") MultipartFile file) {
         try {
-            productService.handleSaveProduct(product, file);
+            productService.handleUpdateProduct(product, file);
             return "redirect:/admin/product";
         } catch (IOException e) {
             e.printStackTrace();
@@ -104,4 +116,9 @@ public class ProductController {
         }
     }
 
+    @PostMapping("/delete")
+    public String deleteProduct(@ModelAttribute Product product) {
+        productService.handleDeleteProduct(product.getId());
+        return "redirect:/admin/product";
+    }
 }

@@ -96,8 +96,8 @@
                                                         accept=".png, .jpg, .jpeg" name="avatarFile" />
                                                 </div>
                                                 <div class="col-12 mb-3">
-                                                    <img style="max-height: 250px; display: none;" alt="avatar preview"
-                                                        id="avatarPreview" />
+                                                    <img style="max-height: 250px; display: block;" alt="avatar preview"
+                                                        id="avatarPreview" src="/img/product/${product.image}"/>
                                                 </div>
                                                 <div class="col-12 mb-5">
                                                     <button type="submit" class="btn btn-primary">Update</button>

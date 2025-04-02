@@ -31,7 +31,7 @@
                                 <a href="/admin/product" class="btn btn-primary">Back to Product List</a>
                                 <hr>
                                 <div class="card w-50">
-                                    <img src="card-img-top" alt="/img/product/${product.image}">
+                                    <img class="card-img-top" src="/img/product/${product.image}">
 
                                     <div class="card-header">
                                         Product information
