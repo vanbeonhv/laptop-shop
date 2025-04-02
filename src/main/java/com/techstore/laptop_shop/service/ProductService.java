@@ -32,4 +32,22 @@ public class ProductService {
     public Product handleGetProductDetail(Long id) {
         return productRepository.findById(id).get();
     }
+
+    public void handleUpdateProduct(Product product, MultipartFile file) throws IOException {
+        Product existingProduct = productRepository.findById(product.getId()).get();
+        existingProduct.setName(product.getName());
+        existingProduct.setPrice(product.getPrice());
+        existingProduct.setDetailDesc(product.getDetailDesc());
+        existingProduct.setShortDesc(product.getShortDesc());
+        existingProduct.setQuantity(product.getQuantity());
+        existingProduct.setFactory(product.getFactory());
+        existingProduct.setTarget(product.getTarget());
+
+        if (file != null && !file.isEmpty()) {
+            String fileName = fileService.handleSaveFile(file, "product");
+            fileService.handleDeleteFile(product.getImage(), "product");
+            existingProduct.setImage(fileName);
+        }
+        productRepository.save(existingProduct);
+    }
 }

@@ -8,9 +8,9 @@
                 <meta charset="utf-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
-                <meta name="author" content="Hỏi Dân IT" />
-                <title>Create Product - Hỏi Dân IT</title>
+                <meta name="description" content="Dự án laptopshop" />
+                <meta name="author" content="Marc" />
+                <title>Create Product - Marc</title>
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <script>
@@ -42,7 +42,7 @@
                                 <div class="mt-5">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mx-auto">
-                                            <h3>Create a product</h3>
+                                            <h3>Update product</h3>
                                             <hr />
                                             <form:form method="post" action="/admin/product/${product.id}" class="row"
                                                 enctype="multipart/form-data" modelAttribute="product">

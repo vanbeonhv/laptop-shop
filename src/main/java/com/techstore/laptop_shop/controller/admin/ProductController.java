@@ -42,6 +42,18 @@ public class ProductController {
         return "admin/product/create";
     }
 
+    @GetMapping("/{id}")
+    public String getDetailProductPage(@PathVariable Long id, Model model) {
+        try {
+            Product product = productService.handleGetProductDetail(id);
+            model.addAttribute("product", product);
+            return "admin/product/product-detail";
+        } catch (NoSuchElementException e) {
+            model.addAttribute("error", e.getMessage());
+            return "admin/product/error";
+        }
+    }
+
     @GetMapping("/update/{id}")
     public String getEditProductPage(@PathVariable Long id, Model model) {
         try {
@@ -77,4 +89,19 @@ public class ProductController {
             return "admin/user/create";
         }
     }
+
+    @PostMapping("/{id}")
+    public String updateProduct(
+            @PathVariable Long id,
+            @ModelAttribute("product") @Valid Product product,
+            @RequestParam("avatarFile") MultipartFile file) {
+        try {
+            productService.handleSaveProduct(product, file);
+            return "redirect:/admin/product";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "admin/user/create";
+        }
+    }
+
 }

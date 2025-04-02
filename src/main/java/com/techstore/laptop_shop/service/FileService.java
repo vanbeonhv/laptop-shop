@@ -19,14 +19,14 @@ public class FileService {
     }
 
     public String handleSaveFile(MultipartFile file, String path) throws IOException {
-        if(file.isEmpty()){
+        if (file.isEmpty()) {
             return " ";
         }
 
         byte[] bytes = file.getBytes();
         String rootPath = this.servletContext.getRealPath("/assets/img");
 
-        File dir = new File(rootPath + File.separator + "avatar");
+        File dir = new File(rootPath + File.separator + path);
         if (!dir.exists())
             dir.mkdirs();
 
@@ -39,5 +39,16 @@ public class FileService {
         stream.write(bytes);
         stream.close();
         return fileName;
+    }
+
+    public void handleDeleteFile(String fileName, String path) {
+        if (fileName == null || fileName.isEmpty()) {
+            return;
+        }
+        String rootPath = this.servletContext.getRealPath("/assets/img/" + path);
+        File file = new File(rootPath + File.separator + fileName);
+        if (file.exists()) {
+            file.delete();
+        }
     }
 }
