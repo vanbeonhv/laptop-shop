@@ -118,13 +118,15 @@
                                                                 </h4>
                                                                 <p style="font-size: 13px;height: 40px;">
                                                                     ${product.shortDesc}</p>
-                                                                <div class="d-flex  flex-lg-wrap justify-content-center">
+                                                                <div
+                                                                    class="d-flex  flex-lg-wrap justify-content-center">
                                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
                                                                         class="text-dark  fw-bold mb-3">
                                                                         <fmt:formatNumber type="number"
                                                                             value="${product.price}" /> đ
                                                                     </p>
-                                                                    <form action="/add-product-to-cart/${product.id}" method="post">
+                                                                    <form action="/add-product-to-cart/${product.id}"
+                                                                        method="post">
                                                                         <button
                                                                             class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
