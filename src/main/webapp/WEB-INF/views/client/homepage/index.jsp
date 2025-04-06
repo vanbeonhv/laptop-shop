@@ -110,7 +110,7 @@
                                                                 style="top: 10px; left: 10px;">Laptop</div>
                                                             <div
                                                                 class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                                <h4 style="font-size: 15px;">
+                                                                <h4 style="font-size: 15px; height: 36px;">
                                                                     <a href="/product/${product.id}">
                                                                         ${product.name}
                                                                     </a>
