@@ -11,6 +11,8 @@
                 <meta name="description" content="Dự án laptopshop" />
                 <meta name="author" content="Marc Nguyen" />
                 <title>Dashboard - Marc Nguyen</title>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                    crossorigin="anonymous" />
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="/js/jquery-3.7.1.min.js"></script>
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,8 +49,8 @@
                                         <div class="col-md-6 col-12 mx-auto">
                                             <h3>Create a user</h3>
                                             <hr />
-                                            <form:form method="post" action="/admin/user"
-                                                modelAttribute="newUser" class="row" enctype="multipart/form-data">
+                                            <form:form method="post" action="/admin/user" modelAttribute="newUser"
+                                                class="row" enctype="multipart/form-data">
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <c:set var="errorEmail">
                                                         <form:errors path="email" cssClass="invalid-feedback" />
@@ -99,7 +101,7 @@
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label for="avatarFile" class="form-label">Avatar:</label>
                                                     <input class="form-control" type="file" id="avatarFile"
-                                                    name="avatarFile" accept=".png, .jpg, .jpeg">
+                                                        name="avatarFile" accept=".png, .jpg, .jpeg">
                                                 </div>
                                                 <div class="col-12 mb-3">
                                                     <img style="max-height: 250px; display: none;" alt="avatar preview"

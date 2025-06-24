@@ -12,6 +12,8 @@
                 <meta name="author" content="Marc" />
                 <title>Create Product - Marc</title>
                 <link href="/css/styles.css" rel="stylesheet" />
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                    crossorigin="anonymous" />
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <script>
                     $(document).ready(() => {
@@ -23,6 +25,8 @@
                         });
                     });
                 </script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                    crossorigin="anonymous"></script>
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
 
@@ -97,7 +101,7 @@
                                                 </div>
                                                 <div class="col-12 mb-3">
                                                     <img style="max-height: 250px; display: block;" alt="avatar preview"
-                                                        id="avatarPreview" src="/img/product/${product.image}"/>
+                                                        id="avatarPreview" src="/img/product/${product.image}" />
                                                 </div>
                                                 <div class="col-12 mb-5">
                                                     <button type="submit" class="btn btn-primary">Update</button>
@@ -113,8 +117,6 @@
                         <jsp:include page="../layout/footer.jsp" />
                     </div>
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-                    crossorigin="anonymous"></script>
                 <script src="/js/scripts.js"></script>
 
             </body>
